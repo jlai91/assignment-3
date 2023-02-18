@@ -34,20 +34,22 @@ public:
 
     // copy constructor
     LinkedList(const LinkedList<T> &other_list) : LinkedList() {
-        /*
-         * TODO: homework
-         */
+
+        //constructs a Linked List with a head
         head = new ListNode<T>();
         num_of_element = 0;
 
+        //checks if reference Linked List is empty, proceeds if List is not empty
         if(other_list.size()>0){
+            //create navigation pointer at head of reference Linked List
             ListNode<T> *nPtr = other_list.head;
+            //traverses reference Linked List
             while(nPtr->next!=NULL){
                 nPtr=nPtr->next;
+                //populates this Linked List by pushing each reference Linked List element
                 push_back(nPtr->val);
             }
         }
-
     }
 
     // destructor
