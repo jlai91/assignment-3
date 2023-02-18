@@ -1,5 +1,4 @@
 #include "linked_list.h"
-#include <iostream>
 
 template<class T>
 void LinkedList<T>::push_front(const T &value) {
@@ -91,22 +90,6 @@ void LinkedList<T>::merge(const List<T> &ot) {
     ListNode<T> *nPtr1 = head;
     ListNode<T> *nPtr2 = ll->head;
 
-    std::cout << "List 1: ";
-    while(nPtr1->next!=NULL){
-        nPtr1=nPtr1->next;
-        std::cout << nPtr1->val;
-    }
-    std::cout << "\n";
-    nPtr1 = head;
-
-    std::cout << "List 2: ";
-    while(nPtr2->next!=NULL){
-        nPtr2=nPtr2->next;
-        std::cout << nPtr2->val;
-    }
-    std::cout << "\n";
-    nPtr2 = ll->head;
-
     if(nPtr2->next==NULL);
     else{
         while(nPtr1->next!=NULL&&nPtr2->next!=NULL){
@@ -119,7 +102,6 @@ void LinkedList<T>::merge(const List<T> &ot) {
                 nPtr2=nPtr2->next;
                 num_of_element++;
             }
-
         }
         while(nPtr2->next!=NULL){
             nPtr1->next=new ListNode<T>(nPtr2->next->val);
@@ -129,13 +111,6 @@ void LinkedList<T>::merge(const List<T> &ot) {
             num_of_element++;
         }
     }
-
-    std::cout << "List Final: ";
-    nPtr1 = head;
-    for(nPtr1;nPtr1->next!=NULL;nPtr1=nPtr1->next)std::cout << nPtr1->next->val;
-    std::cout << "\n";
-
-
 }
 
 template<class T>
@@ -143,35 +118,17 @@ void LinkedList<T>::reverse_iterative() {
     /*
      * TODO: homework
      */
-    T temp[num_of_element];
-    int index = 0;
+    if(num_of_element>1){
+        ListNode<T> *pivot = head->next;
+        ListNode<T> *ptr = pivot;
+        ListNode<T> *prev = pivot;
 
-    std::cout << "List Contents: ";
-    while(head->next!=NULL){
-        std::cout << head->next->val << " ";
-        temp[index]=head->next->val;
-        index++;
-        pop_front();
+        while(pivot->next!=NULL){
+            ptr = pivot->next;
+            pivot->next=ptr->next;
+            ptr->next = prev;
+            head->next=ptr;
+            prev = ptr;
+        }
     }
-    std::cout << "\n";
-
-    std::cout << "# of Elements: " << index << "\n";
-    std::cout << "Elements Saved: ";
-    for(index=0;index<num_of_element;index++){
-        std::cout << temp[index] << " ";
-        push_front(temp[index]);
-    }
-    std::cout << "\n";
-
-    std::cout << "New List Contents: ";
-    ListNode<T> *nPtr = head;
-    while(nPtr->next!=NULL){
-        std::cout << nPtr->next->val << " ";
-        nPtr=nPtr->next;
-    }
-    std::cout << "\n";
-
-
-
-
 }

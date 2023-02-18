@@ -1,4 +1,5 @@
 #include "array_list.h"
+#include <iostream>
 
 template<class T>
 void ArrayList<T>::push_front(const T &value) {
@@ -118,4 +119,11 @@ void ArrayList<T>::reverse_iterative() {
     /*
      * TODO: homework
      */
+    if(num_of_element>1){
+
+
+
+    }
+
+
 }
