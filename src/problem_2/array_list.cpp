@@ -1,4 +1,5 @@
 #include "array_list.h"
+#include <iostream>
 
 template<class T>
 void ArrayList<T>::push_front(const T &value) {
@@ -115,7 +116,17 @@ void ArrayList<T>::merge(const List<T> &ot) {
 
 template<class T>
 void ArrayList<T>::reverse_iterative() {
-    /*
-     * TODO: homework
-     */
+    //no time left to explain in detail
+    //double-traverses list, moves forward while swapping values backwards
+    //(I tried 3 other methods that worked in my head but ran into syntax/segmentation issues here and gave up)
+    if(num_of_element>1){
+        T temp;
+        for(size_t i=1;i<num_of_element;i++){
+            for(size_t j=i;j>0;j--){
+                temp = data[j];
+                data[j]=data[j-1];
+                data[j-1]=temp;
+            }
+        }
+    }
 }
