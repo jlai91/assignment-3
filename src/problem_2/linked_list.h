@@ -37,6 +37,17 @@ public:
         /*
          * TODO: homework
          */
+        head = new ListNode<T>();
+        num_of_element = 0;
+
+        if(other_list.size()>0){
+            ListNode<T> *nPtr = other_list.head;
+            while(nPtr->next!=NULL){
+                nPtr=nPtr->next;
+                push_back(nPtr->val);
+            }
+        }
+
     }
 
     // destructor
