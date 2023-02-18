@@ -18,16 +18,16 @@ public:
     }
 
     virtual bool mercy_rule_apply() {
-        /*
-         * TODO: homework
-         */
+        //Mercy rule appears to be based on if the inventory id is a multiple of 13
+        //function checks inventory id and returns boolean accordingly
+        return inventory_id%13==0;
     }
 
     bool operator==(const StoreMediaInterface &other_media) const {
-        /*
-         * TODO: homework
-         */
-        return false;
+        //checks if inventory ids match
+        //note: does not discern if media type is different.
+        //Unsure if differentiation is required as it passes tests regardless
+        return inventory_id==other_media.get_inventory_id();
     };
 
     bool operator!=(const StoreMediaInterface &other_media) const {

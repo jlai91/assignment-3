@@ -20,7 +20,7 @@ void problem_1_book_fiction();
 int main(int argc, char **argv) {
     problem_1_static_vs_singleton();
     problem_1_book_fiction();
-    problem_2();
+    //problem_2();
 }
 
 void problem_1_book_fiction() {
