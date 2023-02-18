@@ -34,11 +34,6 @@ public:
 
     // copy constructor
     LinkedList(const LinkedList<T> &other_list) : LinkedList() {
-
-        //constructs a Linked List with a head
-        head = new ListNode<T>();
-        num_of_element = 0;
-
         //checks if reference Linked List is empty, proceeds if List is not empty
         if(other_list.size()>0){
             //create navigation pointer at head of reference Linked List
